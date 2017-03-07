@@ -64,9 +64,11 @@ jQuery(function ($) {
 				.on('click', '.destroy', this.destroy.bind(this));
 		},
 		render: function () {
-			var todos = this.getFilteredTodos();
-			$('#todo-list').html(this.todoTemplate(todos));
-			$('#main').toggle(todos.length > 0);
+			var todos = this.getFilteredTodos(); // Gets list of filtered todos
+			$('#todo-list').html(this.todoTemplate(todos)); // Puts list of todos into a html list.
+			$('#main').toggle(todos.length > 0); // Renders #main (list of todos)
+
+			// Potential area where this function does more than render.
 			$('#toggle-all').prop('checked', this.getActiveTodos().length === 0);
 			this.renderFooter();
 			$('#new-todo').focus();
